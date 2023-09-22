@@ -147,11 +147,41 @@ void ComplexNumbers::multipleComplexMenu()
 
 			if (c1 == c2)
 			{
-				cout << "true";
+				cout << "true\n";
 			}
 			else
 			{
-				cout << "false";
+				cout << "false\n";
+			}
+
+			cout << "\t\t\tC1 != C2 -> ";
+			if (c1.getCoefficientB() < 0)
+			{
+				cout << "(" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) ";
+			}
+			else
+			{
+				cout << "(" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) ";
+			}
+
+			cout << "!= ";
+
+			if (c2.getCoefficientB() < 0)
+			{
+				cout << "(" << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i) ? ";
+			}
+			else
+			{
+				cout << "(" << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i) ? ";
+			}
+
+			if (c1 != c2)
+			{
+				cout << "true\n";
+			}
+			else
+			{
+				cout << "false\n";
 			}
 
 			break;
@@ -183,6 +213,18 @@ ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2)
 bool operator==(ComplexNumbers& c1, ComplexNumbers& c2)
 {
 	if (c1.coefficientA == c2.coefficientA && c1.coefficientB == c2.coefficientB)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool operator!=(ComplexNumbers& c1, ComplexNumbers& c2)
+{
+	if (c1.coefficientA != c2.coefficientA || c1.coefficientB != c2.coefficientB)
 	{
 		return true;
 	}

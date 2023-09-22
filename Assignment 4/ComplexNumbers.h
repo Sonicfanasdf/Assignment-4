@@ -27,4 +27,5 @@ public:
 	void multipleComplexMenu();
 	friend ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2);
 	friend bool operator==(ComplexNumbers& c1, ComplexNumbers& c2);
+	friend bool operator!=(ComplexNumbers& c1, ComplexNumbers& c2);
 };
