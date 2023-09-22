@@ -26,6 +26,10 @@ public:
 	void complexMenu();
 	void multipleComplexMenu();
 	friend ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2);
+	friend ComplexNumbers operator-(ComplexNumbers& c1, ComplexNumbers& c2);
 	friend bool operator==(ComplexNumbers& c1, ComplexNumbers& c2);
 	friend bool operator!=(ComplexNumbers& c1, ComplexNumbers& c2);
+	void displayEqual(ComplexNumbers& c1, ComplexNumbers& c2);
+	void displayNotEqual(ComplexNumbers& c1, ComplexNumbers& c2);
+	void displayAddition(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
 };
