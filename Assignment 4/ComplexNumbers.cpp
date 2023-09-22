@@ -6,6 +6,12 @@ ComplexNumbers::ComplexNumbers()
 	coefficientB = 0;
 }
 
+ComplexNumbers::ComplexNumbers(double a, double b)
+{
+	coefficientA = a;
+	coefficientB = b;
+}
+
 void ComplexNumbers::setCoefficientA(double newCoefficientA)
 {
 	coefficientA = newCoefficientA;
@@ -65,6 +71,7 @@ void ComplexNumbers::multipleComplexMenu()
 	char choice = '\0';
 	ComplexNumbers c1;
 	ComplexNumbers c2;
+	ComplexNumbers c3;
 
 	do
 	{
@@ -117,7 +124,36 @@ void ComplexNumbers::multipleComplexMenu()
 			system("pause");
 			system("cls");
 			break;
-		case 3:
+		case 3: cout << "\t\t\tC1 == C2 -> ";
+			if (c1.getCoefficientB() < 0)
+			{
+				cout << "(" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) ";
+			}
+			else
+			{
+				cout << "(" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) ";
+			}
+
+			cout << "== ";
+
+			if (c2.getCoefficientB() < 0)
+			{
+				cout << "(" << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i) ? ";
+			}
+			else
+			{
+				cout << "(" << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i) ? ";
+			}
+
+			if (c1 == c2)
+			{
+				cout << "true";
+			}
+			else
+			{
+				cout << "false";
+			}
+
 			break;
 		case 4:
 			break;
@@ -133,3 +169,25 @@ void ComplexNumbers::multipleComplexMenu()
 	} while (true);
 }
 
+ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2)
+{
+	double sumA;
+	double sumB;
+
+	sumA = c1.coefficientA + c2.coefficientA;
+	sumB = c1.coefficientB + c2.coefficientB;
+
+	return ComplexNumbers(sumA, sumB);
+}
+
+bool operator==(ComplexNumbers& c1, ComplexNumbers& c2)
+{
+	if (c1.coefficientA == c2.coefficientA && c1.coefficientB == c2.coefficientB)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

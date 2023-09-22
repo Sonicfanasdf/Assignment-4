@@ -14,6 +14,7 @@ private:
 public:
 	//default constructor
 	ComplexNumbers();
+	ComplexNumbers(double a, double b);
 	//sets coefficientA
 	void setCoefficientA(double newCoefficientA);
 	//gets coefficientA
@@ -24,4 +25,6 @@ public:
 	double getCoefficientB() const;
 	void complexMenu();
 	void multipleComplexMenu();
+	friend ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2);
+	friend bool operator==(ComplexNumbers& c1, ComplexNumbers& c2);
 };
