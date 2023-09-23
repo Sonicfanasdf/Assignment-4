@@ -228,19 +228,44 @@ void ComplexNumbers::displayEqual(ComplexNumbers& c1, ComplexNumbers& c2)
 
 void ComplexNumbers::displayNotEqual(ComplexNumbers& c1, ComplexNumbers& c2)
 {
-	cout << "\t\t\tC1 != C2 -> ";
-	if (c1.getCoefficientB() < 0)
+
+	
+	if (c1.coefficientA == 0 && c1.coefficientB == 0)
 	{
-		cout << "(" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) ";
+		cout << "\t\t\tC1 != C2 -> (" << c1.coefficientA << ") ";
+	}
+	else if (c1.coefficientA == 0)
+	{
+		cout << "\t\t\tC1 != C2 -> (" << c1.coefficientB << "i) ";
+	}
+	else if (c1.coefficientB == 0)
+	{
+		cout << "\t\t\tC1 != C2 -> (" << c1.coefficientA << ") ";
+	}
+	else if (c1.getCoefficientB() < 0)
+	{
+		cout << "\t\t\tC1 != C2 -> (" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) ";
 	}
 	else
 	{
-		cout << "(" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) ";
+		cout << "\t\t\tC1 != C2 -> (" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) ";
 	}
 
 	cout << "!= ";
 
-	if (c2.getCoefficientB() < 0)
+	if (c2.coefficientA == 0 && c2.coefficientB == 0)
+	{
+		cout << "(" << c2.coefficientA << ") ? ";
+	}
+	else if (c2.coefficientA == 0)
+	{
+		cout << "(" << c2.coefficientB << "i) ? ";
+	}
+	else if (c2.coefficientB == 0)
+	{
+		cout << "(" << c2.coefficientA << ") ? ";
+	}
+	else if (c2.getCoefficientB() < 0)
 	{
 		cout << "(" << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i) ? ";
 	}
