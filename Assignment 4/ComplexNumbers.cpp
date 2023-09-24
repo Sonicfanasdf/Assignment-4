@@ -157,6 +157,9 @@ void ComplexNumbers::multipleComplexMenu()
 			break;
 		case 4: cout << endl;
 			displayAddition(c1, c2, c3);
+			displaySubtraction(c1, c2, c3);
+			displayMultiplication(c1, c2, c3);
+			displayDivision(c1, c2, c3);
 			break;
 		case 5:
 			break;
@@ -288,19 +291,42 @@ void ComplexNumbers::displayAddition(ComplexNumbers& c1, ComplexNumbers& c2, Com
 {
 	c3 = c1 + c2;
 
-	cout << "\t\t\tAddition      : C1 + C2 -> ";
-	if (c1.getCoefficientB() < 0)
+	if (c1.coefficientA == 0 && c1.coefficientB == 0)
 	{
-		cout << "(" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) ";
+		cout << "\t\t\tAddition      : C1 + C2 -> (" << c1.coefficientA << ") ";
+	}
+	else if (c1.coefficientA == 0)
+	{
+		cout << "\t\t\tAddition      : C1 + C2 -> (" << c1.coefficientB << "i) ";
+	}
+	else if (c1.coefficientB == 0)
+	{
+		cout << "\t\t\tAddition      : C1 + C2 -> (" << c1.coefficientA << ") ";
+	}
+	else if (c1.getCoefficientB() < 0)
+	{
+		cout << "\t\t\tAddition      : C1 + C2 -> (" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) ";
 	}
 	else
 	{
-		cout << "(" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) ";
+		cout << "\t\t\tAddition      : C1 + C2 -> (" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) ";
 	}
 
 	cout << "+ ";
 
-	if (c2.getCoefficientB() < 0)
+	if (c2.coefficientA == 0 && c2.coefficientB == 0)
+	{
+		cout << "(" << c2.coefficientA << ") = ";
+	}
+	else if (c2.coefficientA == 0)
+	{
+		cout << "(" << c2.coefficientB << "i) = ";
+	}
+	else if (c2.coefficientB == 0)
+	{
+		cout << "(" << c2.coefficientA << ") = ";
+	}
+	else if (c2.getCoefficientB() < 0)
 	{
 		cout << "(" << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i) = ";
 	}
@@ -309,14 +335,237 @@ void ComplexNumbers::displayAddition(ComplexNumbers& c1, ComplexNumbers& c2, Com
 		cout << "(" << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i) = ";
 	}
 
-	if (c3.getCoefficientB() < 0)
+	if (c3.coefficientA == 0 && c3.coefficientB == 0)
 	{
-		cout << c3.getCoefficientA() << " - " << -(c3.getCoefficientB()) << "i";
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.coefficientA == 0)
+	{
+		cout << c3.coefficientB << "i\n";
+	}
+	else if (c3.coefficientB == 0)
+	{
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.getCoefficientB() < 0)
+	{
+		cout << c3.getCoefficientA() << " - " << -(c3.getCoefficientB()) << "i\n";
 	}
 	else
 	{
-		cout << c3.getCoefficientA() << " + " << c3.getCoefficientB() << "i";
+		cout << c3.getCoefficientA() << " + " << c3.getCoefficientB() << "i\n";
 	}
+}
+
+void ComplexNumbers::displaySubtraction(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3)
+{
+	c3 = c2 - c1;
+
+	if (c2.coefficientA == 0 && c2.coefficientB == 0)
+	{
+		cout << "\t\t\tSubtraction   : C2 - C1 -> (" << c2.coefficientA << ") ";
+	}
+	else if (c2.coefficientA == 0)
+	{
+		cout << "\t\t\tSubtraction   : C2 - C1 -> (" << c2.coefficientB << "i) ";
+	}
+	else if (c2.coefficientB == 0)
+	{
+		cout << "\t\t\tSubtraction   : C2 - C1 -> (" << c2.coefficientA << ") ";
+	}
+	else if (c2.getCoefficientB() < 0)
+	{
+		cout << "\t\t\tSubtraction   : C2 - C1 -> (" << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i) ";
+	}
+	else
+	{
+		cout << "\t\t\tSubtraction   : C2 - C1 -> (" << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i) ";
+	}
+
+	cout << "- ";
+
+	if (c1.coefficientA == 0 && c1.coefficientB == 0)
+	{
+		cout << "(" << c1.coefficientA << ") = ";
+	}
+	else if (c1.coefficientA == 0)
+	{
+		cout << "(" << c1.coefficientB << "i) = ";
+	}
+	else if (c1.coefficientB == 0)
+	{
+		cout << "(" << c1.coefficientA << ") = ";
+	}
+	else if (c1.getCoefficientB() < 0)
+	{
+		cout << "(" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) = ";
+	}
+	else
+	{
+		cout << "(" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) = ";
+	}
+
+	if (c3.coefficientA == 0 && c3.coefficientB == 0)
+	{
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.coefficientA == 0)
+	{
+		cout << c3.coefficientB << "i\n";
+	}
+	else if (c3.coefficientB == 0)
+	{
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.getCoefficientB() < 0)
+	{
+		cout << c3.getCoefficientA() << " - " << -(c3.getCoefficientB()) << "i\n";
+	}
+	else
+	{
+		cout << c3.getCoefficientA() << " + " << c3.getCoefficientB() << "i\n";
+	}
+}
+
+void ComplexNumbers::displayMultiplication(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3)
+{
+	c3 = c1 * c2;
+
+	if (c1.coefficientA == 0 && c1.coefficientB == 0)
+	{
+		cout << "\t\t\tMultiplication: C2 * C1 -> (" << c1.coefficientA << ") ";
+	}
+	else if (c1.coefficientA == 0)
+	{
+		cout << "\t\t\tMultiplication: C2 * C1 -> (" << c1.coefficientB << "i) ";
+	}
+	else if (c1.coefficientB == 0)
+	{
+		cout << "\t\t\tMultiplication: C2 * C1 -> (" << c1.coefficientA << ") ";
+	}
+	else if (c1.getCoefficientB() < 0)
+	{
+		cout << "\t\t\tMultiplication: C2 * C1 -> (" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) ";
+	}
+	else
+	{
+		cout << "\t\t\tMultiplication: C2 * C1 -> (" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) ";
+	}
+
+	cout << "* ";
+
+	if (c2.coefficientA == 0 && c2.coefficientB == 0)
+	{
+		cout << "(" << c2.coefficientA << ") = ";
+	}
+	else if (c2.coefficientA == 0)
+	{
+		cout << "(" << c2.coefficientB << "i) = ";
+	}
+	else if (c2.coefficientB == 0)
+	{
+		cout << "(" << c2.coefficientA << ") = ";
+	}
+	else if (c2.getCoefficientB() < 0)
+	{
+		cout << "(" << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i) = ";
+	}
+	else
+	{
+		cout << "(" << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i) = ";
+	}
+
+	if (c3.coefficientA == 0 && c3.coefficientB == 0)
+	{
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.coefficientA == 0)
+	{
+		cout << c3.coefficientB << "i\n";
+	}
+	else if (c3.coefficientB == 0)
+	{
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.getCoefficientB() < 0)
+	{
+		cout << c3.getCoefficientA() << " - " << -(c3.getCoefficientB()) << "i\n";
+	}
+	else
+	{
+		cout << c3.getCoefficientA() << " + " << c3.getCoefficientB() << "i\n";
+	}
+}
+
+void ComplexNumbers::displayDivision(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3)
+{
+	c3 = c2 / c1;
+
+	if (c2.coefficientA == 0 && c2.coefficientB == 0)
+	{
+		cout << "\t\t\tDivision      : C2 / C1 -> (" << c2.coefficientA << ") ";
+	}
+	else if (c2.coefficientA == 0)
+	{
+		cout << "\t\t\tDivision      : C2 / C1 -> (" << c2.coefficientB << "i) ";
+	}
+	else if (c2.coefficientB == 0)
+	{
+		cout << "\t\t\tDivision      : C2 / C1 -> (" << c2.coefficientA << ") ";
+	}
+	else if (c2.getCoefficientB() < 0)
+	{
+		cout << "\t\t\tDivision      : C2 / C1 -> (" << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i) ";
+	}
+	else
+	{
+		cout << "\t\t\tDivision      : C2 / C1 -> (" << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i) ";
+	}
+
+	cout << "/ ";
+
+	if (c1.coefficientA == 0 && c1.coefficientB == 0)
+	{
+		cout << "(" << c1.coefficientA << ") = ";
+	}
+	else if (c1.coefficientA == 0)
+	{
+		cout << "(" << c1.coefficientB << "i) = ";
+	}
+	else if (c1.coefficientB == 0)
+	{
+		cout << "(" << c1.coefficientA << ") = ";
+	}
+	else if (c1.getCoefficientB() < 0)
+	{
+		cout << "(" << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i) = ";
+	}
+	else
+	{
+		cout << "(" << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i) = ";
+	}
+
+	if (c3.coefficientA == 0 && c3.coefficientB == 0)
+	{
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.coefficientA == 0)
+	{
+		cout << c3.coefficientB << "i\n";
+	}
+	else if (c3.coefficientB == 0)
+	{
+		cout << c3.coefficientA << endl;
+	}
+	else if (c3.getCoefficientB() < 0)
+	{
+		cout << c3.getCoefficientA() << " - " << -(c3.getCoefficientB()) << "i\n";
+	}
+	else
+	{
+		cout << c3.getCoefficientA() << " + " << c3.getCoefficientB() << "i\n";
+	}
+
 }
 
 ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2)
@@ -330,7 +579,7 @@ ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2)
 	return ComplexNumbers(sumA, sumB);
 }
 
-ComplexNumbers operator-(ComplexNumbers& c1, ComplexNumbers& c2)
+ComplexNumbers operator-(ComplexNumbers& c2, ComplexNumbers& c1)
 {
 	double sumA;
 	double sumB;
@@ -339,6 +588,34 @@ ComplexNumbers operator-(ComplexNumbers& c1, ComplexNumbers& c2)
 	sumB = c2.coefficientB - c1.coefficientB;
 
 	return ComplexNumbers(sumA, sumB);
+}
+
+ComplexNumbers operator*(ComplexNumbers& c1, ComplexNumbers& c2)
+{
+	double productA;
+	double productB;
+
+	productA = (c1.coefficientA * c2.coefficientA) + (-(c1.coefficientB * c2.coefficientB));
+	productB = (c1.coefficientA * c2.coefficientB) + (c1.coefficientB * c2.coefficientA);
+
+	return ComplexNumbers(productA, productB);
+}
+
+ComplexNumbers operator/(ComplexNumbers& c2, ComplexNumbers& c1)
+{
+	double a;
+	double b;
+	double denominator;
+
+	denominator = pow(c1.coefficientA, 2) + pow(c1.coefficientB, 2);
+
+	a = (c1.coefficientA * c2.coefficientA) + (-(-c1.coefficientB * c2.coefficientB));
+	b = (c1.coefficientA * c2.coefficientB) + (-c1.coefficientB * c2.coefficientA);
+
+	a /= denominator;
+	b /= denominator;
+
+	return ComplexNumbers(a, b);
 }
 
 bool operator==(ComplexNumbers& c1, ComplexNumbers& c2)
