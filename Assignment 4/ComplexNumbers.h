@@ -26,6 +26,8 @@ public:
 	void complexMenu();
 	void multipleComplexMenu();
 	friend ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2);
+	friend ComplexNumbers operator*(const ComplexNumbers& c3, double value);
+	friend ComplexNumbers operator/(const ComplexNumbers& c3, double value);
 	friend ComplexNumbers operator-(ComplexNumbers& c1, ComplexNumbers& c2);
 	friend ComplexNumbers operator*(ComplexNumbers& c1, ComplexNumbers& c2);
 	friend ComplexNumbers operator/(ComplexNumbers& c1, ComplexNumbers& c2);
@@ -37,4 +39,5 @@ public:
 	void displaySubtraction(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
 	void displayMultiplication(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
 	void displayDivision(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
+	void evaluteSteps(ComplexNumbers& c1, ComplexNumbers& c2);
 };

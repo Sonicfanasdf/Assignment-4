@@ -71,7 +71,7 @@ void ComplexNumbers::multipleComplexMenu()
 	char choice = '\0';
 	ComplexNumbers c1;
 	ComplexNumbers c2;
-	ComplexNumbers c3;
+	ComplexNumbers c0;
 
 	do
 	{
@@ -156,12 +156,17 @@ void ComplexNumbers::multipleComplexMenu()
 			
 			break;
 		case 4: cout << endl;
-			displayAddition(c1, c2, c3);
-			displaySubtraction(c1, c2, c3);
-			displayMultiplication(c1, c2, c3);
-			displayDivision(c1, c2, c3);
+			displayAddition(c1, c2, c0);
+			displaySubtraction(c1, c2, c0);
+			displayMultiplication(c1, c2, c0);
+			displayDivision(c1, c2, c0);
+			system("pause");
+			system("cls");
 			break;
 		case 5:
+			evaluteSteps(c1, c2);
+			system("pause");
+			system("cls");
 			break;
 		case 0:
 			cout << endl;
@@ -568,6 +573,295 @@ void ComplexNumbers::displayDivision(ComplexNumbers& c1, ComplexNumbers& c2, Com
 
 }
 
+void ComplexNumbers::evaluteSteps(ComplexNumbers& c1, ComplexNumbers& c2)
+{
+	ComplexNumbers c3(1.07109, 0.120832);
+	ComplexNumbers c4;
+	ComplexNumbers c5;
+	ComplexNumbers c6;
+	ComplexNumbers c7;
+	ComplexNumbers c8;
+	ComplexNumbers c9;
+
+	c4 = c1 + c2;
+	c5 = c1 / 9;
+
+	c6 = c4 * 3;
+	c7 = c6 / 7;
+
+	c8 = c2 - c5;
+
+	c9 = c7 / c8;
+	
+	if (c1.coefficientA == 0 && c1.coefficientB == 0)
+	{
+		cout << "\n\t\t\tC1 = 0\n";
+	}
+	else if (c1.coefficientA == 0)
+	{
+		cout << "\n\t\t\tC1 = " << c1.coefficientB << "i" << endl;
+	}
+	else if (c1.coefficientB == 0)
+	{
+		cout << "\n\t\t\tC1 = " << c1.coefficientA << endl;
+	}
+	else if (c1.getCoefficientB() < 0)
+	{
+		cout << "\n\t\t\tC1 = " << c1.getCoefficientA() << " - " << -(c1.getCoefficientB()) << "i" << endl;
+	}
+	else
+	{
+		cout << "\n\t\t\tC1 = " << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i" << endl;
+	}
+
+	if (c2.coefficientA == 0 && c2.coefficientB == 0)
+	{
+		cout << "\t\t\tC1 = 0\n\n";
+	}
+	else if (c2.coefficientA == 0)
+	{
+		cout << "\t\t\tC1 = " << c2.coefficientB << "i" << endl;
+	}
+	else if (c2.coefficientB == 0)
+	{
+		cout << "\t\t\tC1 = " << c2.coefficientA << endl;
+	}
+	else if (c2.getCoefficientB() < 0)
+	{
+		cout << "\t\t\tC2 = " << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i" << endl;
+	}
+	else
+	{
+		cout << "\t\t\tC2 = " << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i" << endl;
+	}
+
+	if (c3.coefficientA == 0 && c3.coefficientB == 0)
+	{
+		cout << "\t\t\tC3 = 0\n\n";
+	}
+	else if (c3.coefficientA == 0)
+	{
+		cout << "\t\t\tC3 = " << c3.coefficientB << "i" << endl << endl;
+	}
+	else if (c3.coefficientB == 0)
+	{
+		cout << "\t\t\tC3 = " << c3.coefficientA << endl << endl;
+	}
+	else if (c3.getCoefficientB() < 0)
+	{
+		cout << "\t\t\tC3 = " << c3.getCoefficientA() << " - " << -(c3.getCoefficientB()) << "i" << endl << endl;
+	}
+	else
+	{
+		cout << "\t\t\tC3 = " << c3.getCoefficientA() << " + " << c3.getCoefficientB() << "i" << endl << endl;
+	}
+
+	cout << "\t\t\tEvaluating expression...\n";
+	cout << "\t\t\t\t (3 * (C1 + C2) / 7) / (C2 - C1 / 9) != (1.07109 + 0.120832i) ? \n";
+	cout << "\t\t\tstep #1: (3 * (";
+
+	if (c4.coefficientA == 0 && c4.coefficientB == 0)
+	{
+		cout << c4.coefficientA;
+	}
+	else if (c4.coefficientA == 0)
+	{
+		cout << c4.coefficientB << "i";
+	}
+	else if (c4.coefficientB == 0)
+	{
+		cout << c4.coefficientA;
+	}
+	else if (c4.getCoefficientB() < 0)
+	{
+		cout << c4.getCoefficientA() << " - " << -(c4.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c4.getCoefficientA() << " + " << c4.getCoefficientB() << "i";
+	}
+
+	cout << ") / 7) / ((";
+
+	if (c2.coefficientA == 0 && c2.coefficientB == 0)
+	{
+		cout << c2.coefficientA;
+	}
+	else if (c2.coefficientA == 0)
+	{
+		cout << c2.coefficientB << "i";
+	}
+	else if (c2.coefficientB == 0)
+	{
+		cout << c2.coefficientA;
+	}
+	else if (c2.getCoefficientB() < 0)
+	{
+		cout << c2.getCoefficientA() << " - " << -(c2.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i";
+	}
+
+	cout << ") - (";
+
+	if (c5.coefficientA == 0 && c5.coefficientB == 0)
+	{
+		cout << c5.coefficientA;
+	}
+	else if (c5.coefficientA == 0)
+	{
+		cout << c5.coefficientB << "i";
+	}
+	else if (c5.coefficientB == 0)
+	{
+		cout << c5.coefficientA;
+	}
+	else if (c5.getCoefficientB() < 0)
+	{
+		cout << c5.getCoefficientA() << " - " << -(c5.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c5.getCoefficientA() << " + " << c5.getCoefficientB() << "i";
+	}
+
+	cout << ")) != (1.07109 + 0.120832i)\n";
+
+	cout << "\t\t\tstep #2: ((";
+
+	if (c6.coefficientA == 0 && c6.coefficientB == 0)
+	{
+		cout << c6.coefficientA;
+	}
+	else if (c6.coefficientA == 0)
+	{
+		cout << c6.coefficientB << "i";
+	}
+	else if (c6.coefficientB == 0)
+	{
+		cout << c6.coefficientA;
+	}
+	else if (c6.getCoefficientB() < 0)
+	{
+		cout << c6.getCoefficientA() << " - " << -(c6.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c6.getCoefficientA() << " + " << c6.getCoefficientB() << "i";
+	}
+
+	cout << ") / 7) / (";
+
+	if (c8.coefficientA == 0 && c8.coefficientB == 0)
+	{
+		cout << c8.coefficientA;
+	}
+	else if (c8.coefficientA == 0)
+	{
+		cout << c8.coefficientB << "i";
+	}
+	else if (c8.coefficientB == 0)
+	{
+		cout << c8.coefficientA;
+	}
+	else if (c8.getCoefficientB() < 0)
+	{
+		cout << c8.getCoefficientA() << " - " << -(c8.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c8.getCoefficientA() << " + " << c8.getCoefficientB() << "i";
+	}
+
+	cout << ") != (1.07109 + 0.120832i)\n";
+
+	cout << "\t\t\tstep #3: (";
+
+	if (c7.coefficientA == 0 && c7.coefficientB == 0)
+	{
+		cout << c7.coefficientA;
+	}
+	else if (c7.coefficientA == 0)
+	{
+		cout << c7.coefficientB << "i";
+	}
+	else if (c7.coefficientB == 0)
+	{
+		cout << c7.coefficientA;
+	}
+	else if (c7.getCoefficientB() < 0)
+	{
+		cout << c7.getCoefficientA() << " - " << -(c7.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c7.getCoefficientA() << " + " << c7.getCoefficientB() << "i";
+	}
+
+	cout << ") / (";
+
+	if (c8.coefficientA == 0 && c8.coefficientB == 0)
+	{
+		cout << c8.coefficientA;
+	}
+	else if (c8.coefficientA == 0)
+	{
+		cout << c8.coefficientB << "i";
+	}
+	else if (c8.coefficientB == 0)
+	{
+		cout << c8.coefficientA;
+	}
+	else if (c8.getCoefficientB() < 0)
+	{
+		cout << c8.getCoefficientA() << " - " << -(c8.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c8.getCoefficientA() << " + " << c8.getCoefficientB() << "i";
+	}
+
+	cout << ") != (1.07109 + 0.120832i)\n";
+
+	cout << "\t\t\tstep #4: (";
+
+	if (c9.coefficientA == 0 && c9.coefficientB == 0)
+	{
+		cout << c9.coefficientA;
+	}
+	else if (c9.coefficientA == 0)
+	{
+		cout << c9.coefficientB << "i";
+	}
+	else if (c9.coefficientB == 0)
+	{
+		cout << c9.coefficientA;
+	}
+	else if (c9.getCoefficientB() < 0)
+	{
+		cout << c9.getCoefficientA() << " - " << -(c9.getCoefficientB()) << "i";
+	}
+	else
+	{
+		cout << c9.getCoefficientA() << " + " << c9.getCoefficientB() << "i";
+	}
+
+	cout << ") != (1.07109 + 0.120832i) ?\n";
+
+	cout << "\t\t\tstep #5: ";
+
+	if (c9 != c3)
+	{
+		cout << "true\n\n";
+	}
+	else
+	{
+		cout << "false\n\n";
+	}
+}
+
 ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2)
 {
 	double sumA;
@@ -577,6 +871,28 @@ ComplexNumbers operator+(ComplexNumbers& c1, ComplexNumbers& c2)
 	sumB = c1.coefficientB + c2.coefficientB;
 
 	return ComplexNumbers(sumA, sumB);
+}
+
+ComplexNumbers operator*(const ComplexNumbers& c3, double value) 
+{
+	double productA;
+	double productB;
+
+	productA = c3.coefficientA * value;
+	productB = c3.coefficientB * value;
+
+	return ComplexNumbers(productA, productB);
+}
+
+ComplexNumbers operator/(const ComplexNumbers& c3, double value)
+{
+	double a;
+	double b;
+
+	a = c3.coefficientA / value;
+	b = c3.coefficientB / value;
+
+	return ComplexNumbers(a, b);
 }
 
 ComplexNumbers operator-(ComplexNumbers& c2, ComplexNumbers& c1)
