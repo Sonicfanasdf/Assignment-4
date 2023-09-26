@@ -1,17 +1,21 @@
 #include "ComplexNumbers.h"
 
+//precondition: NA
+//postcondition: creates default class
 ComplexNumbers::ComplexNumbers()
 {
 	coefficientA = new double(0);
 	coefficientB = new double(0);
 }
-
+//precondition: 2 double parameters
+//postcondition: creates class with given doubles
 ComplexNumbers::ComplexNumbers(double a, double b)
 {
 	coefficientA = new double(a);
 	coefficientB = new double(b);
 }
-
+//precondition: a double parameter
+//postcondition: sets coefficientA
 void ComplexNumbers::setCoefficientA(double newCoefficientA)
 {
 	*coefficientA = newCoefficientA;
