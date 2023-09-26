@@ -9,8 +9,8 @@ double inputDouble(string prompt);
 class ComplexNumbers
 {
 private:
-	double coefficientA;
-	double coefficientB;
+	double* coefficientA;
+	double* coefficientB;
 public:
 	//default constructor
 	ComplexNumbers();
@@ -40,4 +40,5 @@ public:
 	void displayMultiplication(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
 	void displayDivision(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
 	void evaluteSteps(ComplexNumbers& c1, ComplexNumbers& c2);
+	~ComplexNumbers();
 };
